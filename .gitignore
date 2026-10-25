@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# 翻译模型由 setup.bat 下载生成(OPUS-MT,各约 81MB)
+models/
+
+# 用户翻译任务的上传文件与译文产物(可能含隐私内容,严禁入库)
+files/
+
+# 本地会话产物
+.zcode/
+
+# 系统杂项
+Thumbs.db
+.DS_Store

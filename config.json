@@ -1,0 +1,10 @@
+{
+  "host": "127.0.0.1",
+  "port": 8477,
+  "open_browser": true,
+  "ct2_device": "auto",
+  "models_dir": "models",
+  "ollama_base_url": "http://127.0.0.1:11434",
+  "ollama_model": "qwen2.5:7b-instruct",
+  "ollama_timeout": 120
+}

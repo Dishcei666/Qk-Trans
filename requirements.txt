@@ -1,0 +1,14 @@
+fastapi>=0.110
+uvicorn>=0.29
+pydantic>=2.6
+ctranslate2>=4.4
+transformers>=4.44
+sentencepiece>=0.2.0
+sacremoses>=0.1.1
+huggingface_hub>=0.24
+requests>=2.31
+python-multipart>=0.0.9
+pymupdf>=1.24
+python-docx>=1.1
+# torch 仅在 setup 阶段用于把 OPUS-MT 模型转换为 CTranslate2 格式(PyPI 的 Windows 版为 CPU 构建)
+torch>=2.2

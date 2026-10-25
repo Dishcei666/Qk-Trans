@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Qk-Trans · 本地离线翻译</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E⚡%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+  <header>
+    <div class="brand">⚡ Qk-Trans <span class="sub">本地离线翻译</span></div>
+    <div class="controls">
+      <div class="seg" id="engineSeg" title="选择翻译引擎">
+        <button data-engine="lite" class="active" type="button">轻量快速</button>
+        <button data-engine="llm" type="button">AI 大模型</button>
+      </div>
+      <div class="seg" id="dirSeg" title="选择翻译方向">
+        <button data-dir="auto" class="active" type="button">自动</button>
+        <button data-dir="zh2en" type="button">中→英</button>
+        <button data-dir="en2zh" type="button">英→中</button>
+      </div>
+      <button id="historyBtn" class="ghost" type="button">🕘 历史</button>
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs">
+    <button data-tab="text" class="active" type="button">📝 文本翻译</button>
+    <button data-tab="file" type="button">📄 文件翻译</button>
+  </nav>
+
+  <main id="textTab">
+    <section class="pane">
+      <div class="pane-head">
+        <span id="inputLabel">输入</span>
+        <span class="pane-head-right">
+          <span id="inputCount" class="count">0 字符</span>
+          <button id="clearBtn" class="ghost" type="button">清空</button>
+        </span>
+      </div>
+      <textarea id="input" spellcheck="false"
+        placeholder="输入或粘贴文字,停顿后自动翻译;Ctrl+Enter 立即翻译"></textarea>
+    </section>
+
+    <section class="pane">
+      <div class="pane-head">
+        <span id="outputLabel">译文</span>
+        <span class="pane-head-right">
+          <span id="meta" class="count"></span>
+          <button id="copyBtn" class="ghost" type="button">复制</button>
+        </span>
+      </div>
+      <div id="output" class="output"><span class="placeholder">译文将显示在这里</span></div>
+    </section>
+  </main>
+
+  <aside id="historyPanel" class="hidden">
+    <div class="pane-head">
+      <span>历史记录</span>
+      <span class="pane-head-right">
+        <button id="historyClearBtn" class="ghost" type="button">清空历史</button>
+        <button id="historyCloseBtn" class="ghost" type="button">关闭</button>
+      </span>
+    </div>
+    <div id="historyList"></div>
+  </aside>
+
+  <section id="fileTab" class="page hidden">
+    <div class="file-wrap">
+      <div class="dropzone" id="dropzone">
+        <input type="file" id="fileInput" accept=".txt,.md,.pdf,.docx,.srt,.vtt" hidden>
+        <div class="dz-icon">📄</div>
+        <div class="dz-title">拖入文件,或点击选择</div>
+        <div class="dz-sub">支持 txt / md / pdf / docx / srt / vtt,最大 20MB</div>
+      </div>
+
+      <div class="file-chip hidden" id="fileChip">
+        <span id="fileName"></span>
+        <span id="fileSize" class="count"></span>
+        <button id="fileRemove" class="ghost" type="button">移除</button>
+      </div>
+
+      <div class="file-options">
+        <label class="switch">
+          <input type="checkbox" id="bilingualToggle">
+          <span>中英对照输出</span>
+        </label>
+      </div>
+
+      <button id="fileBtn" class="primary" type="button" disabled>开始翻译</button>
+
+      <div class="progress-wrap hidden" id="fileProgress">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="count" id="progressText"></div>
+      </div>
+
+      <div class="file-result hidden" id="fileResult">
+        <div id="fileResultInfo"></div>
+        <div class="result-actions">
+          <a id="downloadBtn" class="primary" href="#" download>⬇ 下载译文</a>
+          <button id="previewToggle" class="ghost" type="button">收起预览</button>
+        </div>
+        <div class="file-preview" id="filePreview"></div>
+      </div>
+
+      <div class="file-error hidden" id="fileError"></div>
+    </div>
+  </section>
+
+  <footer>
+    <span id="statusDot" class="dot"></span>
+    <span id="statusText">正在连接本地服务…</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
