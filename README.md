@@ -1,5 +1,10 @@
 # Qk-Trans · 本地离线翻译系统
 
+![License](https://img.shields.io/badge/license-MIT-green)
+![Python](https://img.shields.io/badge/python-3.10%2B-blue)
+![Platform](https://img.shields.io/badge/platform-Windows-lightgrey)
+![Offline](https://img.shields.io/badge/offline-100%25-success)
+
 便捷的中英互译工具:本地运行、完全离线、数据不出电脑。
 
 - **双引擎可切换**
@@ -8,6 +13,16 @@
 - **文本翻译**:输入停顿后自动翻译,Ctrl+Enter 立即翻译;自动方向检测;复制、历史记录
 - **文件翻译**:拖入 txt / md / pdf / docx / srt / vtt 整篇翻译,支持"中英对照"输出;字幕保留时间轴,Word 保留段落结构
 - **隐私**:所有翻译在本机完成,断网可用
+
+## 界面预览
+
+**文本翻译** —— 输入停顿自动翻译,方向自动检测:
+
+![文本翻译](docs/screenshot-text.png)
+
+**文件翻译** —— 拖入文档整篇翻译,译文在页面内逐段对照预览:
+
+![文件翻译](docs/screenshot-file.png)
 
 ## 首次安装(需要联网,仅此一次)
 
